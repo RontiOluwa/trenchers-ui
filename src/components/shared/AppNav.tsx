@@ -13,7 +13,7 @@ export function AppNav({
     isDark: boolean;
     toggleTheme: () => void;
     search?: string;
-    onSearch: (v: string) => void | undefined;
+    onSearch?: (v: string) => void | undefined;
     lastUpdate?: Date | null;
 }) {
 
@@ -64,13 +64,13 @@ export function AppNav({
                     <Input
                         type="text"
                         value={search}
-                        onChange={(e) => onSearch(e.target.value)}
+                        onChange={(e) => onSearch ? onSearch(e.target.value) : ('')}
                         placeholder="Search tokens..."
                         className={`bg-transparent outline-none text-xs w-40
                         ${isDark ? 'text-white placeholder:text-gray-600' : 'text-gray-900 placeholder:text-gray-400'}`} />
 
                     {search && (
-                        <button onClick={() => onSearch('')}
+                        <button onClick={(e) => ('')}
                             className={isDark ? 'text-gray-600 hover:text-gray-400' : 'text-gray-400 hover:text-gray-600'}>
                             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                                 <path d="M18 6L6 18M6 6l12 12" />
