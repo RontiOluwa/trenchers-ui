@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Input } from '@/components/ui/Input';
 
 // Animation variants
@@ -15,12 +15,12 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
-const mockup = {
+const mockup: Variants = {
   hidden: { opacity: 0, y: 40, scale: 0.97 },
   show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] } },
 };
