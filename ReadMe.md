@@ -56,6 +56,7 @@ are public and unauthenticated.
 
 ## Project Structure
 
+```
 src/
 ├── app/
 │ ├── layout.tsx # Root layout — theme script, providers
@@ -122,6 +123,8 @@ src/
 ├── useTheme.ts # Theme toggle hook
 ├── useDerivChart.ts # Deriv WebSocket — history + live OHLC
 └── useLiveTokens.ts # DexScreener fetch + simulated micro-updates
+
+```
 
 ---
 
