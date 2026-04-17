@@ -6,18 +6,18 @@ import React, {
 } from 'react';
 
 interface ThemeContextType {
-    isDark: boolean | null; // null = not yet mounted (prevents hydration mismatch)
+    isDark: boolean // null = not yet mounted (prevents hydration mismatch)
     toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-    isDark: null,
+    isDark: false,
     toggleTheme: () => { },
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
     // null = not yet mounted — avoids server/client mismatch
-    const [isDark, setIsDark] = useState<boolean | null>(null);
+    const [isDark, setIsDark] = useState<boolean>(false);
 
     // On mount: read the class that the inline script already set on <html>
     // This is the single source of truth — the inline script runs before React
