@@ -3,8 +3,7 @@
 import { type SelectHTMLAttributes, forwardRef } from 'react';
 
 
-
-interface Props extends SelectHTMLAttributes<HTMLInputElement> {
+interface Props extends Omit<SelectHTMLAttributes<HTMLInputElement>, 'prefix'> {
     symbol?: string;
     prefix?: React.ReactNode;
     error?: string;
