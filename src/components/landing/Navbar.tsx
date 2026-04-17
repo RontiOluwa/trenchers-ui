@@ -12,7 +12,6 @@ export function Navbar() {
   const { isDark, toggleTheme } = useThemeToggle();
 
 
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });

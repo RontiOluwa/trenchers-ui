@@ -1,17 +1,9 @@
-"use client";
+'use client';
 
 import { useTheme } from '@/context/ThemeContext';
 
+// Thin re-export so existing components that import from here still work
 export function useThemeToggle() {
-    const { isDark, setIsDark } = useTheme();
-
-    const toggleTheme = () => {
-        const next = !isDark;
-        setIsDark((prev) => (prev === false ? true : false));
-
-        localStorage.setItem('trenchers-theme', String(next));
-
-    };
-
+    const { isDark, toggleTheme } = useTheme();
     return { isDark, toggleTheme };
 }
