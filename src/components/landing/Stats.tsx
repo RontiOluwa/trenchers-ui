@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -25,16 +26,24 @@ function useCountUp(target: number | null, inView: boolean, duration = 1500) {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+
     if (!inView || target === null) return;
+
+    // Create a local constant to 'capture' the non-null value
+    const finalTarget = target;
     const start = performance.now();
 
     function tick(now: number) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(eased * target);
-      if (progress < 1) rafRef.current = requestAnimationFrame(tick);
+
+      // Use the captured constant here
+      setDisplay(eased * finalTarget);
+
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      }
     }
 
     rafRef.current = requestAnimationFrame(tick);
